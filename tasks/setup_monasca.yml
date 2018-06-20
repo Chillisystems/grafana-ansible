@@ -90,7 +90,7 @@
     body:
       name: "monasca"
       type: "monasca-datasource"
-      url: "http://{{ internal_lb_vip_address }}:{{ monasca_service_port }}"
+      url: "https://{{ internal_lb_vip_address }}:{{ monasca_service_port }}"
       access: "proxy"
       isDefault: True
       jsonData:
