@@ -22,25 +22,8 @@
     mode: 0755
   notify:
     - Reload systemd
+    - Restart grafana-server
   when: ansible_service_mgr == 'systemd'
-
-- name: Copy Grafana init script
-  template:
-    src: grafana-server.upstart.conf.j2
-    dest: /etc/init/grafana-server.conf
-    mode: 0644
-    owner: root
-    group: root
-  register: upstart_init
-  notify:
-    - Restart grafana-server
-  when: ansible_service_mgr == 'upstart'
-
-- name: Reload init scripts
-  command: initctl reload-configuration
-  when: upstart_init | changed
-  notify:
-    - Restart grafana-server
 
 - name: Deploy Grafana Config files
   template:
@@ -52,8 +35,6 @@
   with_items:
     - src: grafana.ini.j2
       dest: /etc/grafana/grafana.ini
-    - src: grafana-default.j2
-      dest: /etc/default/grafana
   notify:
     - Restart grafana-server
 

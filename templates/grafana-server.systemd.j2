@@ -16,7 +16,7 @@ WorkingDirectory={{ grafana_build_dir }}/src/github.com/grafana/grafana
 PermissionsStartOnly=true
 ExecStartPre=/bin/mkdir -p /var/run/grafana
 ExecStartPre=/bin/chown -R grafana:grafana /var/run/grafana
-ExecStart={{ grafana_build_dir }}/src/github.com/grafana/grafana/bin/grafana-server -config=${CONF_FILE} -pidfile=${PID_FILE} -homedir=${HOMEDIR}
+ExecStart={{ grafana_build_dir }}/src/github.com/grafana/grafana/bin/grafana-server -config=/etc/grafana/grafana.ini -pidfile=/var/run/grafana/grafana.pid -homedir=/var/lib/grafana
 LimitNOFILE=10000
 TimeoutStopSec=20
 UMask=0027
