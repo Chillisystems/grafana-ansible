@@ -3,6 +3,7 @@
 export PATH=$PATH:/usr/local/go/bin
 export GOPATH=`pwd`
 
+mkdir -p /var/lib/grafana
 mkdir -p $GOPATH/src/github.com/grafana
 cd $GOPATH/src/github.com/grafana
 cp -r {{ grafana_clone_dir }}/grafana .
@@ -17,6 +18,8 @@ nvm use {{ node_js_version }}
 npm config set unsafe-perm true
 npm install -g yarn@0.27 && yarn --no-emoji
 ./node_modules/.bin/grunt build --force
+cp -r ./conf /var/lib/grafana/conf
+cp -r ./public_gen /var/lib/grafana/public
 mkdir -p {{ grafana_plugins_dir }}/monasca-grafana-datasource
 cd {{ grafana_plugins_dir }}/monasca-grafana-datasource
 git init
