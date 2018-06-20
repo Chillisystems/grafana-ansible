@@ -68,10 +68,15 @@ grafana_plugins:
 grafana_log_mode: "console file"
 grafana_log_level: info
 
-grafana_git_repo: "https://github.com/sapcc/grafana.git"
+grafana_git_repo: "https://github.com/monasca/grafana.git"
+grafana_git_install_branch: grafana4
+grafana_monasca_datasource_git_repo: https://git.openstack.org/openstack/monasca-grafana-datasource
+grafana_monasca_datasource_git_install_branch: master
+grafana_monasca_app_git_repo: https://github.com/monasca/monasca-grafana
+grafana_monasca_app_git_install_branch: master
 
 grafana_clone_dir: "/opt/grafana-src"
 grafana_build_dir: "/opt/grafana-build"
 
 nvm_version: 0.32.1
-node_js_version: 4.0.0
+node_js_version: 6.9.5

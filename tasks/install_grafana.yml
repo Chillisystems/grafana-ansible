@@ -58,7 +58,7 @@
   git:
     repo: "{{ grafana_git_repo }}"
     dest: "{{ grafana_clone_dir }}/grafana"
-    version: "keystone"
+    version: "{{ grafana_git_install_branch }}"
     force: "yes"
   register: grafana_clone
 
