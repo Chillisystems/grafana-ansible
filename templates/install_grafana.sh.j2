@@ -16,8 +16,10 @@ source /root/.nvm/nvm.sh
 nvm install {{ node_js_version }}
 nvm use {{ node_js_version }}
 npm config set unsafe-perm true
-npm install -g typescript@2.8.4
-npm install -g yarn@0.27 && yarn --no-emoji
+npm install -g yarn@0.27
+yarn --no-emoji
+yarn remove typescript
+yarn add typescript@2.8.4
 ./node_modules/.bin/grunt build --force
 cp -r ./conf /var/lib/grafana/conf
 cp -r ./public_gen /var/lib/grafana/public
