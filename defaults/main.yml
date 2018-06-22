@@ -51,7 +51,7 @@ grafana_http_port: 3000
 grafana_http_protocol: http
 grafana_url: "{{ grafana_http_protocol }}://{{ grafana_http_addr }}:{{ grafana_http_port }}"
 
-grafana_data_dir: "/srv/grafana/data"
+grafana_data_dir: "/var/lib/grafana"
 grafana_log_dir: "/var/log/grafana"
 grafana_plugins_dir: "/var/lib/grafana/plugins"
 
