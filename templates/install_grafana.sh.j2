@@ -23,6 +23,7 @@ yarn add typescript@2.8.4
 ./node_modules/.bin/grunt build --force
 cp -r ./conf /var/lib/grafana/conf
 cp -r ./public_gen /var/lib/grafana/public
+
 mkdir -p {{ grafana_plugins_dir }}/monasca-grafana-datasource
 cd {{ grafana_plugins_dir }}/monasca-grafana-datasource
 git init
@@ -30,12 +31,13 @@ git remote add origin {{ grafana_monasca_datasource_git_repo }}
 git fetch origin {{ grafana_monasca_datasource_git_install_branch }}
 git reset --hard FETCH_HEAD
 cd ..
-mkdir monasca-grafana-app
-cd monasca-grafana-app
-git init
-git remote add origin {{ grafana_monasca_app_git_repo }}
-git fetch origin {{ grafana_monasca_app_git_install_branch }}
-git reset --hard FETCH_HEAD
-npm install grunt
-npm install
-./node_modules/.bin/grunt
+
+# mkdir monasca-grafana-app
+# cd monasca-grafana-app
+# git init
+# git remote add origin {{ grafana_monasca_app_git_repo }}
+# git fetch origin {{ grafana_monasca_app_git_install_branch }}
+# git reset --hard FETCH_HEAD
+# npm install grunt
+# npm install
+# ./node_modules/.bin/grunt
