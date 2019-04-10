@@ -130,16 +130,16 @@
   when: item.status == 404
   with_items: "{{ monasca_dashboards.results }}"
 
-- name: Enable monasca plugin app
-  uri:
-    url: "{{ grafana_url }}/api/plugins/monasca-app/settings"
-    method: POST
-    user: "{{ grafana_admin_user }}"
-    password: "{{ grafana_admin_password }}"
-    body:
-      datasource: "monasca"
-      pinned: true
-      enabled: true
-    force_basic_auth: yes
-    status_code: 200
-    body_format: json
+#- name: Enable monasca plugin app
+#  uri:
+#    url: "{{ grafana_url }}/api/plugins/monasca-app/settings"
+#    method: POST
+#    user: "{{ grafana_admin_user }}"
+#    password: "{{ grafana_admin_password }}"
+#    body:
+#      datasource: "monasca"
+#      pinned: true
+#      enabled: true
+#    force_basic_auth: yes
+#    status_code: 200
+#    body_format: json
