@@ -14,9 +14,9 @@
 - name: Deploy monasca dynamic dashboard
   copy:
     src: drilldown.js
-    dest: "{{ grafana_build_dir }}/src/github.com/grafana/grafana/public_gen/dashboards/drilldown.js"
-    owner: root
-    group: root
+    dest: "{{ grafana_data_dir }}/public/dashboards/drilldown.js"
+    owner: grafana
+    group: grafana
     mode: 0644
   notify:
     - Restart grafana-server
